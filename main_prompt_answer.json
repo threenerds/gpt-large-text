@@ -1,0 +1,13 @@
+{
+  "resumen": "Daniel Ibars y Tú están discutiendo sobre la creación de un Script para un video, el cual debe ser corto para evitar aburrir a la audiencia. Están considerando la posibilidad de usar Inteligencia Artificial para sacar insights de las llamadas de la empresa y hacer la vida más fácil para los project managers.",
+  "tareas": [
+    "Crear un Script para el video.",
+    "Usar Inteligencia Artificial para sacar insights de las llamadas de la empresa.",
+    "Hacer la vida más fácil para los project managers."
+  ],
+  "acuerdos": ["El video debe ser corto para evitar aburrir a la audiencia."],
+  "decisiones": [
+    "Usar Inteligencia Artificial para sacar insights de las llamadas de la empresa.",
+    "Hacer la vida más fácil para los project managers."
+  ]
+}
