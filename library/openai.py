@@ -1,18 +1,22 @@
 import openai
 import os
-
+from .text import num_tokens_from_string
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-
+# max tokens 4096
 def completion(prompt_request):
+    # Calcular Tokens
+    prompt_token_count = num_tokens_from_string(prompt_request)
+    remaining_response_tokens = 4096 - prompt_token_count
+    
+    
     # Definir el modelo y la configuración de la solicitud
     modelo = "text-davinci-003"
     configuracion = {
         "engine": modelo,
-        "max_tokens": 1024,
-        "temperature": 0,
-        "top_p":1,
+        "max_tokens": remaining_response_tokens,
+        "top_p":0.1,
         "frequency_penalty":0,
         "presence_penalty":0
     }
@@ -25,15 +29,9 @@ def completion(prompt_request):
 def chat_completion(prompt_request):
     messages = [{"role": "system", "content": "This is text summarization."}]    
     messages.append({"role": "user", "content": prompt_request})
-
-    response = openai.ChatCompletion.create(
+    return openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=messages,
-            temperature=.5,
-            max_tokens=500,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
     )
     
-    response["choices"][0]["message"]['content'].strip()
+    
